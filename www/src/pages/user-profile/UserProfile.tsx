@@ -69,5 +69,5 @@ function UserProfile() {
     </div>
   )
 }
-
+UserProfile.displayName = 'UserProfile'
 export default UserProfile

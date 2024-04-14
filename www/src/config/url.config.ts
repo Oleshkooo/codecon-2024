@@ -19,6 +19,10 @@ export const urlConfig = {
         home: {
             label: 'Домашня',
             url: '/home',
+        }, 
+        events: {
+            label: 'Івенти',
+            url: '/events',
         },
     },
 } as const
