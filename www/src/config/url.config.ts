@@ -16,5 +16,9 @@ export const urlConfig = {
             label: 'Профіль',
             url: '/user-profile'
         },
+        home: {
+            label: 'Домашня',
+            url: '/home',
+        },
     },
 } as const

@@ -1,4 +1,6 @@
 import { urlConfig } from '@/config/url.config'
+import { HomeLayout } from '@/pages/home/home.layout'
+import { HomePage } from '@/pages/home/home.page'
 import { MainLayout } from '@/pages/main/main.layout'
 import { MainPage } from '@/pages/main/main.page'
 import { NotFoundPage } from '@/pages/not-found/not-found.page'
@@ -16,6 +18,16 @@ export const Routes: React.FC<RoutesProps> = memo(() => {
                 {
                     index: true,
                     element: <MainPage />,
+                },
+            ],
+        },
+        {
+            path: urlConfig.pages.home.url,
+            element: <HomeLayout />,
+            children: [
+                {
+                    index: true,
+                    element: <HomePage />,
                 },
             ],
         },
