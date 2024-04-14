@@ -1,0 +1,67 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthEntity {
+  token: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  login(data: LoginInput!): AuthEntity!
+  register(data: RegisterInput!): AuthEntity!
+}
+
+type Query {
+  userConnection: [UserEntity!]!
+}
+
+input RegisterInput {
+  age: Float!
+  bio: String! = ""
+  email: String!
+  fullName: String!
+  gender: UserGenderEnum!
+  imgURL: String!
+  interests: [String!]!
+  location: String!
+  password: String!
+  socials: SocialsInput!
+}
+
+type SocialsEntity {
+  facebook: String
+  instagram: String
+  twitter: String
+}
+
+input SocialsInput {
+  facebook: String
+  instagram: String
+  twitter: String
+}
+
+type UserEntity {
+  age: Float!
+  bio: String!
+  email: String!
+  fullName: String!
+  gender: UserGenderEnum!
+  id: String!
+  imgURL: String!
+  interests: [String!]!
+  isAdmin: Boolean!
+  location: String!
+  password: String!
+  socials: SocialsEntity!
+}
+
+enum UserGenderEnum {
+  FEMALE
+  MALE
+  OTHER
+}
