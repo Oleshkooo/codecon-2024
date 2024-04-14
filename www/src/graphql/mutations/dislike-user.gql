@@ -1,0 +1,6 @@
+mutation DislikeUser($dislikeUserUserId2: String!) {
+    dislikeUser(userId: $dislikeUserUserId2) {
+        isSuccess
+        error
+    }
+}

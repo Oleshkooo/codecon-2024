@@ -1,0 +1,6 @@
+mutation LikeUser($userId: String!) {
+    likeUser(userId: $userId) {
+        isSuccess
+        error
+    }
+}
