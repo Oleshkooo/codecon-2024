@@ -7,8 +7,8 @@ import { NotFoundPage } from '@/pages/not-found/not-found.page'
 import { memo } from 'react'
 import { useRoutes } from 'react-router-dom'
 import UserProfile from './pages/user-profile/UserProfile'
+import { RoutesProps } from './routes'
 
-interface RoutesProps {}
 export const Routes: React.FC<RoutesProps> = memo(() => {
     return useRoutes([
         {
@@ -35,10 +35,9 @@ export const Routes: React.FC<RoutesProps> = memo(() => {
             path: '*',
             element: <NotFoundPage />,
         },
-        {
-            path: urlConfig.pages.userPage.url,
-            element: <UserProfile />,
-        },
+        path,
+        urlConfig.pages.userPage.url,
+        element,
+        <UserProfile />,
     ])
 })
-Routes.displayName = Routes.name
