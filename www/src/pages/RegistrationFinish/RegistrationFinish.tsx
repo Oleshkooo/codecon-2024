@@ -1,10 +1,10 @@
-import React from 'react'
 import { CustomWrapperHF } from '@/components/customs/Custom-Wrapper-HF/Custom-Wrapper-HF'
-import Confetti from 'react-confetti'
-import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { H1 } from '@/components/typography/h1'
 import { Button } from '@/components/ui/button'
-import { Link } from 'react-router-dom'
 import { urlConfig } from '@/config/url.config'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
+import Confetti from 'react-confetti'
+import { Link } from 'react-router-dom'
 
 export const RegistrationFinish = () => {
     const { height, width } = useWindowDimensions()
@@ -12,12 +12,12 @@ export const RegistrationFinish = () => {
     return (
         <CustomWrapperHF>
             <div className="container">
-                <h3 className="text-center text-4xl text-primaryGreen font-bold">
-                    Congratulations, you have completed setting up your profile
-                </h3>
+                <H1 className="text-center text-primaryGreen">
+                    Congratulations! Your profile is complete!
+                </H1>
             </div>
             <Confetti width={width} height={height} numberOfPieces={300} recycle={false} />
-            <Button className="bg-primaryGreen mt-6 hover:bg-secondaryGreen" onClick={() => console.log('CLOCK')}>
+            <Button className="bg-primaryGreen mt-8 hover:bg-secondaryGreen" onClick={() => console.log('CLOCK')}>
                 <Link to={urlConfig.pages.main.url}>
                     <p className="colo">Move on</p>
                 </Link>

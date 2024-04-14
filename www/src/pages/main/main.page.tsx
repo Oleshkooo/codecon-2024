@@ -16,8 +16,7 @@ export const MainPage: React.FC<MainPageProps> = memo(() => {
     const { data, error } = useUserConnectionQuery({
         context: {
             headers: {
-                // Authorization: `Bearer ${localStorage.getItem('userToken')}`
-                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJQdDFpeG1naURNTXJTeWdpYXMyUiIsImlhdCI6MTcxMzA4NDgxNSwiZXhwIjoxNzE0ODk5MjE1fQ.26I9-AoWTTSF6mESoraFdLIFCitJmRzH9XNAxw1snFo`,
+                Authorization: `Bearer ${localStorage.getItem('userToken')}`
             },
         },
     })
