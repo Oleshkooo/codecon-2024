@@ -1,26 +1,26 @@
 query UserConnection($limit: Int, $nextPageCursor: String) {
-  userConnection(limit: $limit, nextPageCursor: $nextPageCursor) {
-    nodes {
-      age
-      bio
-      email
-      fullName
-      gender
-      id
-      imgURL
-      interests
-      isAdmin
-      location
-      password
-      socials {
-        facebook
-        instagram
-        twitter
-      }
+    userConnection(limit: $limit, nextPageCursor: $nextPageCursor) {
+        nodes {
+            age
+            bio
+            email
+            fullName
+            gender
+            id
+            imgURL
+            interests
+            isAdmin
+            location
+            password
+            socials {
+                facebook
+                instagram
+                twitter
+            }
+        }
+        pageInfo {
+            limit
+            nextPageCursor
+        }
     }
-    pageInfo {
-      limit
-      nextPageCursor
-    }
-  }
 }

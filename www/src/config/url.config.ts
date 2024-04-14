@@ -24,5 +24,9 @@ export const urlConfig = {
             label: 'Івенти',
             url: '/events',
         },
+        registrationFinish: {
+            label: 'Віттаня',
+            url: '/registration-finish'
+        },
     },
 } as const
