@@ -1,6 +1,5 @@
 import { memo } from 'react'
 import { Outlet } from 'react-router-dom'
-import { HomePage } from './home.page'
 
 type HomeLayoutProps = unknown
 export const HomeLayout: React.FC<HomeLayoutProps> = memo(() => {
@@ -8,7 +7,6 @@ export const HomeLayout: React.FC<HomeLayoutProps> = memo(() => {
         <>
             <div>
                 <Outlet />
-                <HomePage />
             </div>
         </>
     )

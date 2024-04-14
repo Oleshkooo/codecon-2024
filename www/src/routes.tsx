@@ -35,7 +35,7 @@ export const Routes: React.FC<RoutesProps> = memo(() => {
             path: '*',
             element: <NotFoundPage />,
         },
-        {
+       
             path: urlConfig.pages.userPage.url,
             element: <UserProfile />
         }
