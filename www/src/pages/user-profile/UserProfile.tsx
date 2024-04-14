@@ -1,8 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Facebook, Instagram, Pencil, Twitter } from "lucide-react"
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 function UserProfile() {
   const [isEditing, setIsEditing] = useState(false);
@@ -19,10 +19,10 @@ function UserProfile() {
   const handleBlur = () => {
       setIsEditing(false);
   };  return (
-    <div className="flex items-center justify-center w-full">
-      <div className="flex flex-col gap-4 p-4">
+    <div className="flex items-center justify-center w-full m-auto">
+      <div className="flex flex-col gap-4 p-4 w-[375px]">
         <div className="max-w-lg flex justify-center">
-          <div className="relative w-44 h-44">
+          <div className="relative w-44 h-44 mt-[50px]">
           <Avatar className="m-auto w-40 h-40 relative">
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>CN</AvatarFallback>
@@ -32,14 +32,14 @@ function UserProfile() {
             </div>
           </div>
         </div>
-        <div className="border-[1px] min-w-[500px] border-black rounded-xl max-w-lg">
+        <div className="border-[1px] max-w-[500px] border-black rounded-xl max-w-lg">
           <div className="p-2 border-b-[1px] border-black flex justify-between">
             <h2>Full name:</h2>
             <h2>Igor Carlov</h2>
           </div>
           <div className="p-2 border-b-[1px] border-black flex justify-between">
             <h2>Email:</h2>
-            <h2>kazmirchukvitaliy2016@gmail.com</h2>
+            <h2>kazmirchukv@gmail.com</h2>
           </div>
           <div className="p-2 border-b-[1px] border-black flex justify-between">
             <h2>Location:</h2>
@@ -64,11 +64,7 @@ function UserProfile() {
                   <h2 className="p-4" onClick={handleDoubleClick}>{bio}</h2>
               )}
         </div>
-        <div className="border-[1px] border-black rounded-xl max-w-lg">
-          <div className="p-2 border-b-[1px] border-black flex justify-between"><Instagram/><span><a>@_kazmik_</a></span></div>
-          <div className="p-2 border-b-[1px] border-black flex justify-between"><Facebook/><span>Vitaliy Kazmirchuk</span></div>
-          <div className="p-2 flex justify-between"><Twitter/>Kazmik</div>
-        </div>
+            <Button>Confirm</Button>
       </div>
     </div>
   )
