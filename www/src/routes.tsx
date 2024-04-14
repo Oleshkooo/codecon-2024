@@ -5,10 +5,10 @@ import { NotFoundPage } from '@/pages/not-found/not-found.page'
 import { WelcomePage } from '@/pages/welcome/welcome-page'
 import { memo } from 'react'
 import { useRoutes } from 'react-router-dom'
-import { EventPage } from './pages/event-pages/EventPage'
 import { EventPagesLayout } from './pages/event-pages/event-pages.layout'
 import UserProfile from './pages/user-profile/UserProfile'
 import { UserProfileLayout } from './pages/user-profile/user-profile.layout'
+import { EventPage } from '@/pages/event-pages/EventPage'
 
 export interface RoutesProps {}
 export const Routes: React.FC<RoutesProps> = memo(() => {
