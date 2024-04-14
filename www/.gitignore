@@ -1,5 +1,6 @@
 .firebase
 .local
+src/__generated__
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,macos,windows,linux,react
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,macos,windows,linux,react
