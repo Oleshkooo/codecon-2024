@@ -32,7 +32,7 @@ function UserProfile() {
             </div>
           </div>
         </div>
-        <div className="border-[1px] min-w-[500px] border-black rounded-xl max-w-lg">
+        <div className="border-[1px] min-w-[300px] md:min-w-[500px]  border-black rounded-xl max-w-lg">
           <div className="p-2 border-b-[1px] border-black flex justify-between">
             <h2>Full name:</h2>
             <h2>Igor Carlov</h2>
