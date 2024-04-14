@@ -2,8 +2,61 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type SocialsEntity {
+  facebook: String
+  instagram: String
+  twitter: String
+}
+
+type UserEntity {
+  id: String!
+  email: String!
+  password: String!
+  isAdmin: Boolean!
+  fullName: String!
+  gender: UserGenderEnum!
+  age: Float!
+  bio: String!
+  imgURL: String!
+  location: String!
+  interests: [String!]!
+  socials: SocialsEntity!
+}
+
+enum UserGenderEnum {
+  MALE
+  FEMALE
+  OTHER
+}
+
 type AuthEntity {
   token: String!
+}
+
+type IsSuccessEntity {
+  isSuccess: Boolean!
+  error: String
+}
+
+type PageInfoEntity {
+  limit: Int!
+  nextPageCursor: Int
+}
+
+type UserConnectionResponse {
+  nodes: [UserEntity!]!
+  pageInfo: PageInfoEntity!
+}
+
+type Query {
+  userConnection(limit: Int = 10, nextPageCursor: Int): UserConnectionResponse!
+}
+
+type Mutation {
+  login(data: LoginInput!): AuthEntity!
+  register(data: RegisterInput!): AuthEntity!
+  likeUser(userId: String!): IsSuccessEntity!
+  dislikeUser(userId: String!): IsSuccessEntity!
 }
 
 input LoginInput {
@@ -11,57 +64,21 @@ input LoginInput {
   password: String!
 }
 
-type Mutation {
-  login(data: LoginInput!): AuthEntity!
-  register(data: RegisterInput!): AuthEntity!
-}
-
-type Query {
-  userConnection: [UserEntity!]!
-}
-
 input RegisterInput {
-  age: Float!
-  bio: String! = ""
   email: String!
+  password: String!
   fullName: String!
   gender: UserGenderEnum!
+  age: Float!
+  bio: String! = ""
   imgURL: String!
-  interests: [String!]!
   location: String!
-  password: String!
+  interests: [String!]!
   socials: SocialsInput!
-}
-
-type SocialsEntity {
-  facebook: String
-  instagram: String
-  twitter: String
 }
 
 input SocialsInput {
   facebook: String
   instagram: String
   twitter: String
-}
-
-type UserEntity {
-  age: Float!
-  bio: String!
-  email: String!
-  fullName: String!
-  gender: UserGenderEnum!
-  id: String!
-  imgURL: String!
-  interests: [String!]!
-  isAdmin: Boolean!
-  location: String!
-  password: String!
-  socials: SocialsEntity!
-}
-
-enum UserGenderEnum {
-  FEMALE
-  MALE
-  OTHER
 }

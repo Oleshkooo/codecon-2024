@@ -1,13 +1,13 @@
 import { AppModule } from '@/app.module'
-import { ENV } from '@/utils/env'
 import { ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
+import config from 'config'
 
 const bootstrap = async () => {
     const app = await NestFactory.create(AppModule)
 
     app.enableCors({
-        origin: '*'
+        origin: '*',
     })
     app.useGlobalPipes(new ValidationPipe())
 
@@ -18,7 +18,7 @@ const bootstrap = async () => {
         console.error('Unhandled Rejection at:', promise, 'Reason:', reason)
     })
 
-    const port = ENV.env.PORT || 4000
+    const port = config.get<number>('port') || 4000
     await app.listen(port)
 }
 bootstrap()

@@ -13,11 +13,8 @@ type Create<T> = (data: Omit<T, 'id'>) => Promise<T>
 type CreateMany<T> = (data: Omit<T, 'id'>[]) => Promise<T[]>
 type Update<T> = (data: Partial<T> & ObjectWithId) => Promise<WriteResult>
 type Delete<T extends { id: string }> = (id: T['id']) => Promise<WriteResult>
-type Query<T> = (
-    queryCb: (
-        ref: FirebaseFirestore.CollectionReference<FirebaseFirestore.DocumentData>,
-    ) => FirebaseFirestore.Query<FirebaseFirestore.DocumentData>,
-) => Promise<T[]>
+type Ref = FirebaseFirestore.CollectionReference<FirebaseFirestore.DocumentData>
+type Query<T> = (queryCb: (ref: Ref) => FirebaseFirestore.Query<FirebaseFirestore.DocumentData>) => Promise<T[]>
 
 export class FirebaseFactory<T extends ObjectWithId> {
     constructor(

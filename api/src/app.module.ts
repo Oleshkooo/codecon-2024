@@ -1,5 +1,6 @@
 import { AuthModule } from '@/auth/auth.module'
 import { GraphQLEndpointsModule } from '@/graphql/graphql-endpoints.module'
+import { HealthcheckController } from '@/healthcheck/healthcheck.controller'
 import { ENV } from '@/utils/env'
 import {
     ApolloServerPluginLandingPageLocalDefault,
@@ -16,7 +17,7 @@ import { join } from 'path'
             driver: ApolloDriver,
             path: '/graphql',
             autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-            sortSchema: true,
+            sortSchema: false,
             playground: false,
             plugins: [
                 ENV.isProd()
@@ -27,5 +28,6 @@ import { join } from 'path'
         AuthModule,
         GraphQLEndpointsModule,
     ],
+    controllers: [HealthcheckController],
 })
 export class AppModule {}
