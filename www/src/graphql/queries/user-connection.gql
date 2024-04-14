@@ -1,17 +1,17 @@
-query UserConnection($limit: Int, $nextPageCursor: String) {
+query UserConnection($limit: Int, $nextPageCursor: Int) {
   userConnection(limit: $limit, nextPageCursor: $nextPageCursor) {
     nodes {
-      age
-      bio
+      id
       email
+      password
+      isAdmin
       fullName
       gender
-      id
+      age
+      bio
       imgURL
-      interests
-      isAdmin
       location
-      password
+      interests
       socials {
         facebook
         instagram

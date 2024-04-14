@@ -12,13 +12,18 @@ export const urlConfig = {
             label: 'Реєстрація',
             url: '/register',
         },
-        userPage: {
+        myProfile: {
             label: 'Профіль',
-            url: '/user-profile'
+            url: '/my-profile'
         },
-        home: {
-            label: 'Домашня',
-            url: '/home',
+        profile: {
+            label: 'Профіль',
+            url: '/profile/:id',
+            getURL: (id: string) => `/profile/${id}`,
+        },
+        welcome: {
+            label: 'Початкова',
+            url: '/welcome',
         }, 
         events: {
             label: 'Івенти',

@@ -1,14 +1,13 @@
 import { urlConfig } from '@/config/url.config'
-import { HomeLayout } from '@/pages/home/home.layout'
-import { HomePage } from '@/pages/home/home.page'
 import { MainLayout } from '@/pages/main/main.layout'
 import { MainPage } from '@/pages/main/main.page'
 import { NotFoundPage } from '@/pages/not-found/not-found.page'
+import { WelcomePage } from '@/pages/welcome/welcome-page'
 import { memo } from 'react'
 import { useRoutes } from 'react-router-dom'
-import UserProfile from './pages/user-profile/UserProfile'
-import { EventPagesLayout } from './pages/event-pages/event-pages.layout'
 import { EventPage } from './pages/event-pages/EventPage'
+import { EventPagesLayout } from './pages/event-pages/event-pages.layout'
+import UserProfile from './pages/user-profile/UserProfile'
 import { UserProfileLayout } from './pages/user-profile/user-profile.layout'
 
 export interface RoutesProps {}
@@ -25,14 +24,8 @@ export const Routes: React.FC<RoutesProps> = memo(() => {
             ],
         },
         {
-            path: urlConfig.pages.home.url,
-            element: <HomeLayout />,
-            children: [
-                {
-                    index: true,
-                    element: <HomePage />,
-                },
-            ],
+            path: urlConfig.pages.welcome.url,
+            element: <WelcomePage />,
         },
         {
             path: urlConfig.pages.events.url,
@@ -45,7 +38,7 @@ export const Routes: React.FC<RoutesProps> = memo(() => {
             ],
         },
         {
-            path: urlConfig.pages.userPage.url,
+            path: urlConfig.pages.myProfile.url,
             element: <UserProfileLayout />,
             children: [
                 {
