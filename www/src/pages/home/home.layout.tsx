@@ -1,3 +1,4 @@
+import Navigation from '@/components/Navigation/Navigation'
 import { memo } from 'react'
 import { Outlet } from 'react-router-dom'
 
@@ -7,6 +8,7 @@ export const HomeLayout: React.FC<HomeLayoutProps> = memo(() => {
         <>
             <div>
                 <Outlet />
+                <Navigation />
             </div>
         </>
     )
