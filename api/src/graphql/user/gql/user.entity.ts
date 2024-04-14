@@ -1,7 +1,7 @@
 import { SocialsEntity, SocialsInput } from '@/graphql/user/gql/socials.entity'
 import { UserGenderEnum } from '@/graphql/user/gql/user-gender.enum'
 import { Field, InputType, ObjectType, OmitType } from '@nestjs/graphql'
-import { IsArray, IsEmail, IsInt, IsNotEmpty } from 'class-validator'
+import { IsArray, IsEmail, IsInt, IsNotEmpty, IsUrl } from 'class-validator'
 
 @ObjectType()
 export class UserEntity {
@@ -35,6 +35,7 @@ export class UserEntity {
     bio: string
 
     @Field(() => String)
+    @IsUrl()
     imgURL: string
 
     @Field(() => String)
@@ -46,6 +47,8 @@ export class UserEntity {
 
     @Field(() => SocialsEntity)
     socials: SocialsEntity
+
+    userInteractions: string[]
 }
 
 @InputType()

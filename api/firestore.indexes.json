@@ -1,0 +1,37 @@
+{
+    "indexes": [
+        {
+            "collectionGroup": "dev__users",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "interests",
+                    "arrayConfig": "CONTAINS"
+                },
+                {
+                    "fieldPath": "age",
+                    "order": "ASCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "dev__users",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "interests",
+                    "arrayConfig": "CONTAINS"
+                },
+                {
+                    "fieldPath": "age",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "id",
+                    "order": "ASCENDING"
+                }
+            ]
+        }
+    ],
+    "fieldOverrides": []
+}
