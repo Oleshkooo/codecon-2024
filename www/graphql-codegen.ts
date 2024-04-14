@@ -8,7 +8,7 @@ const dotenvConfig = ['.env', '.env.development'].forEach(env =>
 )
 
 const config: CodegenConfig = {
-    schema: process.env.GRAPHQL_ENDPOINT,
+    schema: process.env.VITE_GRAPHQL_ENDPOINT,
     documents: ['**/*.gql'],
     ignoreNoDocuments: true,
     overwrite: true,

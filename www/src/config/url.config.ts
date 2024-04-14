@@ -16,5 +16,9 @@ export const urlConfig = {
             label: 'Профіль',
             url: '/user-profile'
         },
+        registrationFinish: {
+            label: 'Віттаня',
+            url: '/registration-finish'
+        },
     },
 } as const

@@ -1,5 +1,5 @@
-query UserConnection($limit: Int, $nextPageCursor: Int) {
-    userConnection(limit: $limit, nextPageCursor: $nextPageCursor) {
+query UserConnection {
+    userConnection {
         age
         bio
         email
