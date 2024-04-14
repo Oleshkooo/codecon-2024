@@ -10,6 +10,9 @@ import UserProfile from './pages/user-profile/UserProfile'
 import { EventPagesLayout } from './pages/event-pages/event-pages.layout'
 import { EventPage } from './pages/event-pages/EventPage'
 import { UserProfileLayout } from './pages/user-profile/user-profile.layout'
+import GuestProfile from './pages/guest-profile/GuestProfile'
+import { GuestProfileLayout } from './pages/guest-profile/guest-profile.layout'
+
 
 export interface RoutesProps {}
 export const Routes: React.FC<RoutesProps> = memo(() => {
@@ -57,6 +60,16 @@ export const Routes: React.FC<RoutesProps> = memo(() => {
         {
             path: '*',
             element: <NotFoundPage />,
+        },
+        {
+            path: urlConfig.pages.guestPage.url,
+            element: <GuestProfileLayout/>,
+            children: [
+                {
+                    index: true,
+                    element: <GuestProfile />,
+                },
+            ],
         },
     ])
 })
