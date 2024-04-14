@@ -20,7 +20,7 @@ export class UserAuthService {
     }
 
     async encryptPassword(password: string): Promise<string> {
-        const saltOrRounds = config.get<number>('bcrypt.saltOrRounds')
+        const saltOrRounds = config.get<number>('auth.saltOrRounds')
         return bcrypt.hash(password, saltOrRounds)
     }
 
