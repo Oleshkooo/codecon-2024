@@ -12,6 +12,9 @@ import GuestProfile from './pages/guest-profile/GuestProfile'
 import { GuestProfileLayout } from './pages/guest-profile/guest-profile.layout'
 
 import { EventPage } from '@/pages/event-pages/EventPage'
+import { LoginPage } from '@/pages/login/LoginPage'
+import { Registration } from '@/pages/registration/Registration'
+import { RegistrationFinish } from '@/pages/RegistrationFinish/RegistrationFinish'
 
 export interface RoutesProps {}
 export const Routes: React.FC<RoutesProps> = memo(() => {
@@ -49,6 +52,18 @@ export const Routes: React.FC<RoutesProps> = memo(() => {
                     element: <UserProfile />,
                 },
             ],
+        },
+        {
+            path: urlConfig.pages.login.url,
+            element: <LoginPage />,
+        },
+        {
+            path: urlConfig.pages.register.url,
+            element: <Registration />,
+        },
+        {
+            path: urlConfig.pages.registrationFinish.url,
+            element: <RegistrationFinish />,
         },
         {
             path: '*',

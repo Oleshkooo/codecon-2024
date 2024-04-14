@@ -1,26 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import { RegisterInput, UserGenderEnum, useRegisterMutation } from '@/__generated__/graphql'
+import { UserInterests } from '@/components/Login-form/UserInterests'
 import { CustomWrapperHF } from '@/components/customs/Custom-Wrapper-HF/Custom-Wrapper-HF'
-import { Input } from '@/components/ui/input'
-import { registerSchema } from '@/schemas'
-import { useFormik } from 'formik'
-import { Label } from '@/components/ui/label'
 import { FormErrorText } from '@/components/customs/Form-Error-Text/FormErrorText'
 import { Button } from '@/components/ui/button'
-import { SocialsEntity, UserGenderEnum, useRegisterMutation } from '@/__generated__/graphql'
-import { UserInterests } from '@/components/Login-form/UserInterests'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { registerSchema } from '@/schemas'
+import { useFormik } from 'formik'
+import { useEffect, useState } from 'react'
 import { userInterests } from './userInterests'
 
-interface RegistrationInitialValues {
-    fullName: string
-    email: string
-    age: string
-    password: string
-    confirmPassword: string
-    imgURL: string
-    location: string
-    socials: SocialsEntity
-    interests: string[]
-    gender: UserGenderEnum
+type RegistrationInitialValues = Omit<RegisterInput, 'imgURL'> & {
+    confirmPassword: RegisterInput['password']
 }
 
 export const Registration = () => {
@@ -32,7 +23,10 @@ export const Registration = () => {
         const { confirmPassword, ...data } = values
         createUser({
             variables: {
-                data: data,
+                data: {
+                    imgURL: 'https://cff2.earth.com/uploads/2017/08/09051140/Arts-really-do-heal-divisions-and-bring-people-together.jpg',
+                    ...data,
+                },
             },
         })
     }
@@ -47,9 +41,8 @@ export const Registration = () => {
         useFormik<RegistrationInitialValues>({
             initialValues: {
                 fullName: '',
-                imgURL: '',
                 email: '',
-                age: '',
+                age: 18,
                 gender: UserGenderEnum.Female,
                 location: '',
                 socials: {
@@ -101,7 +94,7 @@ export const Registration = () => {
                 <>
                     <div className="flex flex-col">
                         <h2 className="text-center mb-4 font-bold text-xl sm:text-3xl sm:mb-6">Registration</h2>
-                        <div className="mb-2">
+                        {/* <div className="mb-2">
                             <Label htmlFor="image" className="mb-2 ml-1">
                                 Select your profile picture
                             </Label>
@@ -114,7 +107,7 @@ export const Registration = () => {
                                 // onChange={handleSaveImage}
                                 onBlur={handleBlur}
                             />
-                        </div>
+                        </div> */}
                         <div className="mb-2">
                             <Label htmlFor="fullName" className="mb-2 ml-1">
                                 Full name
@@ -232,6 +225,7 @@ export const Registration = () => {
                             )}
                         </div>
                     </div>
+                    {/* @ts-expect-error working ok */}
                     <Button disabled={!isValid} onClick={handleSubmit}>
                         {secondeStep ? 'Complete profile' : 'Go to next step'}
                     </Button>

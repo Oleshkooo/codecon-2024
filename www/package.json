@@ -12,7 +12,7 @@
         "lint-fix": "eslint '*/**/*.{js,ts}' --fix && prettier --write --cache .",
         "lint-lockfile": "lockfile-lint --path package-lock.json --allowed-hosts registry.npmjs.org --validate-https",
         "gql-generate": "graphql-codegen --config graphql-codegen.ts",
-        "firebase-deploy": "firebase deploy --only functions",
+        "firebase-deploy": "firebase deploy",
         "firebase-logs": "firebase functions:log",
         "find-circulars": "madge --circular --extensions ts ./",
         "typesync": "typesync",
