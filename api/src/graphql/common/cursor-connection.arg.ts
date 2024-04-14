@@ -6,5 +6,5 @@ export class CursorConnectionArgs {
     limit: number
 
     @Field(() => Int, { nullable: true })
-    nextPageCursor: number
+    nextPageCursor?: number
 }

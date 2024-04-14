@@ -1,7 +1,6 @@
-import { UserAuthService } from '@/graphql/user-auth/user-auth.service'
 import { AuthEntity, LoginInput, RegisterInput } from '@/graphql/user-auth/gql/auth.entity'
+import { UserAuthService } from '@/graphql/user-auth/user-auth.service'
 import { Args, Mutation, Resolver } from '@nestjs/graphql'
-import { CurrentUser } from '@/auth/decorators/current-user.decorator'
 
 @Resolver()
 export class UserAuthResolver {
