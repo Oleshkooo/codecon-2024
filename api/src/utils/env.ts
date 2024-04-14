@@ -66,16 +66,15 @@ class Env<T extends z.ZodSchema> {
     }
 }
 
-
 const envSchema = z.object({
     NODE_ENV: z.string().optional(),
-    // server
-    PORT: z.string(),
 })
 
-export const ENV = new Env(envSchema, Env.parse())
+// export const ENV = new Env(envSchema, Env.parse())
+export const ENV = new Env(envSchema, process.env)
 
 declare global {
+    // eslint-disable-next-line @typescript-eslint/no-namespace
     namespace NodeJS {
         interface ProcessEnv extends z.infer<typeof envSchema> {}
     }

@@ -16,6 +16,14 @@ export const urlConfig = {
             label: 'Профіль',
             url: '/user-profile'
         },
+        home: {
+            label: 'Домашня',
+            url: '/home',
+        }, 
+        events: {
+            label: 'Івенти',
+            url: '/events',
+        },
         registrationFinish: {
             label: 'Віттаня',
             url: '/registration-finish'

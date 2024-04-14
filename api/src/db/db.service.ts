@@ -7,11 +7,12 @@ import admin, { ServiceAccount } from 'firebase-admin'
 
 @Injectable()
 export class DbService {
-private adminSDK: ServiceAccount
+    private adminSDK: ServiceAccount
     private firebaseApp: admin.app.App
     private firebaseFirestore: admin.firestore.Firestore
 
     public users: FirebaseFactory<UserEntity>
+    public events: FirebaseFactory<any>
 
     constructor() {
         this.adminSDK = {
@@ -38,6 +39,7 @@ private adminSDK: ServiceAccount
     }
 
     private getCollectionName(collectionName: string): string {
-        return `${ENV.getNodeEnvShort()}__${collectionName}`
+        // return `${ENV.getNodeEnvShort()}__${collectionName}`
+        return collectionName
     }
 }
