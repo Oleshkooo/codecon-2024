@@ -12,5 +12,9 @@ export const urlConfig = {
             label: 'Реєстрація',
             url: '/register',
         },
+        userPage: {
+            label: 'Профіль',
+            url: '/user-profile'
+        },
     },
 } as const
