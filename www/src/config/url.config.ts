@@ -21,9 +21,13 @@ export const urlConfig = {
             url: '/profile/:id',
             getURL: (id: string) => `/profile/${id}`,
         },
-        welcome: {
-            label: 'Початкова',
-            url: '/welcome',
+        guestPage: {
+            label: 'Профіль',
+            url: '/guest-profile'
+        },
+        home: {
+            label: 'Домашня',
+            url: '/home',
         }, 
         events: {
             label: 'Івенти',
