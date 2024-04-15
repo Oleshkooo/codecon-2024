@@ -8,18 +8,15 @@ const dotenvConfig = ['.env', '.env.development'].forEach(env =>
 )
 
 const config: CodegenConfig = {
-    schema: process.env.GQL_CODEGEN,
-    documents: ['src/**/*.{ts,tsx}'],
+    schema: process.env.VITE_GRAPHQL_ENDPOINT,
+    documents: ['**/*.gql'],
     ignoreNoDocuments: true,
     overwrite: true,
     generates: {
-        './src/_graphql/': {
-            preset: 'client',
-            plugins: [],
-            presetConfig: {
-                gqlTagName: 'gql',
-            },
+        './src/__generated__/graphql.ts': {
+            plugins: ['typescript', 'typescript-operations', 'typescript-react-apollo']
         },
     },
 }
+
 export default config
