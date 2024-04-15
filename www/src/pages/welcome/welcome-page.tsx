@@ -16,7 +16,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = memo(() => {
         >
             <div className="w-full h-full bg-gradient-to-t from-black bottom-0 absolute" />
             <div className="z-10 flex flex-col gap-5 pt-52">
-                <H1 className="text-white">Welcome to the "Ми поруч"!</H1>
+                <H1 className="text-white text-center">Welcome to the "Ми поруч"!</H1>
                 <div className="flex gap-3 justify-center">
                     <Button asChild>
                         <Link to={urlConfig.pages.login.url}>Login</Link>

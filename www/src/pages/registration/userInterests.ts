@@ -33,6 +33,5 @@ export const userInterests = [
     'collecting',
     'arts',
     'scuba diving',
-    'music',
     'design',
 ];

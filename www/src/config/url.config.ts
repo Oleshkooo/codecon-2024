@@ -25,9 +25,9 @@ export const urlConfig = {
             label: 'Профіль',
             url: '/guest-profile'
         },
-        home: {
-            label: 'Домашня',
-            url: '/home',
+        welcome: {
+            label: 'Привітання',
+            url: '/welcome',
         }, 
         events: {
             label: 'Івенти',

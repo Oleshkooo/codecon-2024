@@ -20,12 +20,12 @@ export const Registration = () => {
     const [userToken, setUserToken] = useState(localStorage.getItem('userToken'))
 
     const onSubmit = (values: RegistrationInitialValues) => {
-        const { confirmPassword, ...data } = values
+        const { confirmPassword, ...other } = values
         createUser({
             variables: {
                 data: {
                     imgURL: 'https://cff2.earth.com/uploads/2017/08/09051140/Arts-really-do-heal-divisions-and-bring-people-together.jpg',
-                    ...data,
+                    ...other,
                 },
             },
         })

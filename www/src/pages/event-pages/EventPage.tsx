@@ -5,7 +5,7 @@ type Event = {
     location: string
     name: string
     description: string
-    ingUrls: string[]
+    imgUrls: string[]
     address: string
     date: string
 }
@@ -14,50 +14,50 @@ const data: Event[] = [
     {
         id: 1,
         location: 'Lviv',
-        name: 'Aboba',
+        name: 'Retreat Center Lviv',
         description:
             'Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.',
-        ingUrls: [
+        imgUrls: [
             'https://i0.wp.com/picjumbo.com/wp-content/uploads/camping-on-top-of-the-mountain-during-sunset-free-photo.jpg?w=600&quality=800',
         ],
         address: 'Stepana Bandery 42',
-        date: '23 october',
+        date: '23 October',
     },
     {
         id: 2,
         location: 'Lviv',
-        name: 'Aboba',
+        name: 'Retreat Center Lviv',
         description:
             'Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.',
-        ingUrls: [
+        imgUrls: [
             'https://i0.wp.com/picjumbo.com/wp-content/uploads/camping-on-top-of-the-mountain-during-sunset-free-photo.jpg?w=600&quality=800',
         ],
         address: 'Stepana Bandery 42',
-        date: '23 october',
+        date: '23 October',
     },
     {
         id: 3,
         location: 'Lviv',
-        name: 'Aboba',
+        name: 'Retreat Center Lviv',
         description:
             'Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.',
-        ingUrls: [
+        imgUrls: [
             'https://i0.wp.com/picjumbo.com/wp-content/uploads/camping-on-top-of-the-mountain-during-sunset-free-photo.jpg?w=600&quality=800',
         ],
         address: 'Stepana Bandery 42',
-        date: '23 october',
+        date: '23 October',
     },
     {
         id: 4,
         location: 'Lviv',
-        name: 'Aboba',
+        name: 'Retreat Center Lviv',
         description:
             'Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.',
-        ingUrls: [
+        imgUrls: [
             'https://i0.wp.com/picjumbo.com/wp-content/uploads/camping-on-top-of-the-mountain-during-sunset-free-photo.jpg?w=600&quality=800',
         ],
         address: 'Stepana Bandery 42',
-        date: '23 october',
+        date: '23 October',
     },
 ]
 
@@ -71,7 +71,7 @@ export const EventPage: React.FC<EventPageProps> = memo(() => {
                         <div className="md:shrink-0">
                             <img
                                 className="h-48 w-full object-cover md:h-full md:w-48"
-                                src={item.ingUrls[0]}
+                                src={item.imgUrls[0]}
                                 alt="Modern building architecture"
                             />
                         </div>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { CustomWrapperHF } from '@/components/customs/Custom-Wrapper-HF/Custom-Wrapper-HF'
 import { Button } from '@/components/ui/button'
 import { urlConfig } from '@/config/url.config'
