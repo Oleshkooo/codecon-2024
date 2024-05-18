@@ -2,7 +2,7 @@ import { Field, Int, ObjectType } from '@nestjs/graphql'
 import { IsNumber } from 'class-validator'
 
 @ObjectType()
-export class PageInfoEntity {
+export class PageInfoType {
     @IsNumber()
     @Field(() => Int)
     limit: number

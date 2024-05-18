@@ -1,7 +1,8 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class SocialsEntity {
+@InputType({ isAbstract: true })
+export class SocialsType {
     @Field(() => String, { nullable: true })
     facebook?: string
 
@@ -13,13 +14,4 @@ export class SocialsEntity {
 }
 
 @InputType()
-export class SocialsInput implements SocialsEntity {
-    @Field(() => String, { nullable: true })
-    facebook?: string
-
-    @Field(() => String, { nullable: true })
-    instagram?: string
-
-    @Field(() => String, { nullable: true })
-    twitter?: string
-}
+export class SocialsInput extends SocialsType {}

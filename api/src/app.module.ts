@@ -1,6 +1,5 @@
 import { AuthModule } from '@/auth/auth.module'
 import { GraphQLEndpointsModule } from '@/graphql/graphql-endpoints.module'
-import { HealthcheckController } from '@/healthcheck/healthcheck.controller'
 import { ENV } from '@/utils/env'
 import {
     ApolloServerPluginLandingPageLocalDefault,
@@ -28,6 +27,5 @@ import { join } from 'path'
         AuthModule,
         GraphQLEndpointsModule,
     ],
-    controllers: [HealthcheckController],
 })
 export class AppModule {}

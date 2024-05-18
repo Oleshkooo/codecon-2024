@@ -2,25 +2,32 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type SocialsEntity {
+type IsSuccessType {
+  isSuccess: Boolean!
+  error: String
+}
+
+type AuthResponseType {
+  token: String!
+}
+
+type SocialsType {
   facebook: String
   instagram: String
   twitter: String
 }
 
-type UserEntity {
+type UserType {
   id: String!
   email: String!
-  password: String!
-  isAdmin: Boolean!
   fullName: String!
   gender: UserGenderEnum!
   age: Float!
   bio: String!
-  imgURL: String!
+  imgUrl: String!
   location: String!
   interests: [String!]!
-  socials: SocialsEntity!
+  socials: SocialsType!
 }
 
 enum UserGenderEnum {
@@ -29,49 +36,39 @@ enum UserGenderEnum {
   OTHER
 }
 
-type AuthEntity {
-  token: String!
-}
-
-type IsSuccessEntity {
-  isSuccess: Boolean!
-  error: String
-}
-
-type PageInfoEntity {
+type PageInfoType {
   limit: Int!
   nextPageCursor: Int
 }
 
-type UserConnectionResponse {
-  nodes: [UserEntity!]!
-  pageInfo: PageInfoEntity!
+type UserConnection {
+  nodes: [UserType!]!
+  pageInfo: PageInfoType!
 }
 
 type Query {
-  userConnection(limit: Int = 10, nextPageCursor: Int): UserConnectionResponse!
+  userConnection(limit: Int = 10, nextPageCursor: Int): UserConnection!
+  profile: UserType!
 }
 
 type Mutation {
-  login(data: LoginInput!): AuthEntity!
-  register(data: RegisterInput!): AuthEntity!
-  likeUser(userId: String!): IsSuccessEntity!
-  dislikeUser(userId: String!): IsSuccessEntity!
+  login(data: LoginInput!): AuthResponseType!
+  register(data: RegisterInput!): AuthResponseType!
+  likeUser(userId: String!): IsSuccessType!
+  dislikeUser(userId: String!): IsSuccessType!
 }
 
 input LoginInput {
   email: String!
-  password: String!
 }
 
 input RegisterInput {
   email: String!
-  password: String!
   fullName: String!
   gender: UserGenderEnum!
   age: Float!
   bio: String! = ""
-  imgURL: String!
+  imgUrl: String!
   location: String!
   interests: [String!]!
   socials: SocialsInput!

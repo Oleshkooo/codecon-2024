@@ -1,7 +1,7 @@
 import { Field, ObjectType } from '@nestjs/graphql'
 
 @ObjectType()
-export class IsSuccessEntity {
+export class IsSuccessType {
     @Field(() => Boolean)
     isSuccess: boolean
 

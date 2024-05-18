@@ -1,10 +1,11 @@
-import { SocialsEntity, SocialsInput } from '@/graphql/user/gql/socials.entity'
-import { UserGenderEnum } from '@/graphql/user/gql/user-gender.enum'
+import { SocialsInput, SocialsType } from '@/graphql/user/dto/independent/socials.type'
+import { UserGenderEnum } from '@/graphql/user/dto/enum/user-gender.enum'
 import { Field, InputType, ObjectType, OmitType } from '@nestjs/graphql'
 import { IsArray, IsEmail, IsInt, IsNotEmpty, IsUrl } from 'class-validator'
 
 @ObjectType()
-export class UserEntity {
+@InputType({ isAbstract: true })
+export class UserType {
     @Field(() => String)
     id: string
 
@@ -12,13 +13,6 @@ export class UserEntity {
     @IsNotEmpty()
     @IsEmail()
     email: string
-
-    @Field(() => String)
-    @IsNotEmpty()
-    password: string
-
-    @Field(() => Boolean, { defaultValue: false })
-    isAdmin: boolean
 
     @Field(() => String)
     @IsNotEmpty()
@@ -36,7 +30,7 @@ export class UserEntity {
 
     @Field(() => String)
     @IsUrl()
-    imgURL: string
+    imgUrl: string
 
     @Field(() => String)
     location: string
@@ -45,14 +39,18 @@ export class UserEntity {
     @IsArray()
     interests: string[]
 
-    @Field(() => SocialsEntity)
-    socials: SocialsEntity
+    @Field(() => SocialsType)
+    socials: SocialsType
 
+    // hidden
+
+    idAdmin: boolean
+    password: string
     userInteractions: string[]
 }
 
 @InputType()
-export class UserInput extends OmitType(UserEntity, ['socials']) {
+export class UserInput extends OmitType(UserType, ['socials']) {
     @Field(() => SocialsInput)
     socials: SocialsInput
 }

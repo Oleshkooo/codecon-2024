@@ -1,5 +1,5 @@
 import { FirebaseFactory } from '@/db/firebase.factory'
-import { UserEntity } from '@/graphql/user/gql/user.entity'
+import { UserType } from '@/graphql/user/dto/independent/user.type'
 import { ENV } from '@/utils/env'
 import { Injectable } from '@nestjs/common'
 import config from 'config'
@@ -11,7 +11,7 @@ export class DbService {
     private firebaseApp: admin.app.App
     private firebaseFirestore: admin.firestore.Firestore
 
-    public users: FirebaseFactory<UserEntity>
+    public users: FirebaseFactory<UserType>
     public events: FirebaseFactory<any>
 
     constructor() {
@@ -39,7 +39,9 @@ export class DbService {
     }
 
     private getCollectionName(collectionName: string): string {
-        // return `${ENV.getNodeEnvShort()}__${collectionName}`
+        if (ENV.isDev()) {
+            return `${ENV.getNodeEnvShort()}__${collectionName}`
+        }
         return collectionName
     }
 }
